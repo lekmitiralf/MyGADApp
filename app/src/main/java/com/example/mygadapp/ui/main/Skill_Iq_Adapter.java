@@ -17,10 +17,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class Skill_Iq_Adapter extends RecyclerView.Adapter<Skill_Iq_Adapter.ViewHolder> {
-    private Context context2;
+    private static Context context;
     private List<Skill> Skills ;
+    private View v;
     public Skill_Iq_Adapter(Context context , List<Skill> Skills) {
-        this.context2 = context;
+        this.context = context;
         // this.imageView = imageView;
         this.Skills = Skills;
 
@@ -41,10 +42,12 @@ public class Skill_Iq_Adapter extends RecyclerView.Adapter<Skill_Iq_Adapter.View
                 " Score ," +
                 Skills.get(position).getCountry();
 //        Log.e("ImageUrl", imageUrl);
-
-        Glide.with(context2)
+        Glide.with(holder.badge.getContext())
                 .load(imageUrl)
                 .into(holder.badge);
+       // Glide.with(context2)
+           //     .load(imageUrl)
+          //      .into(holder.badge);
         holder.name.setText(Skills.get(position).getName());
 
         holder.subtitle.setText(studentDetails);
@@ -61,9 +64,9 @@ public class Skill_Iq_Adapter extends RecyclerView.Adapter<Skill_Iq_Adapter.View
         TextView name, subtitle;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            badge = (ImageView) itemView.findViewById(R.id.badge);
-            name =(TextView) itemView.findViewById(R.id.name);
-            subtitle =(TextView) itemView.findViewById(R.id.subtitle);
+            badge = (ImageView) itemView.findViewById(R.id.badge_skill);
+            name =(TextView) itemView.findViewById(R.id.nameTextView);
+            subtitle =(TextView) itemView.findViewById(R.id.descTextView);
         }
     }
 }

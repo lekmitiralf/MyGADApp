@@ -17,8 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class Learning_Leaders_Adapter extends RecyclerView.Adapter<Learning_Leaders_Adapter.ViewHolder>  {
-    private Context context;
+    private static Context context;
     private List<Learner> learners ;
+    private View v;
     public Learning_Leaders_Adapter(Context context , List<Learner> learners) {
         this.context = context;
         // this.imageView = imageView;
@@ -31,6 +32,7 @@ public class Learning_Leaders_Adapter extends RecyclerView.Adapter<Learning_Lead
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.gads_item,parent,false);
+//        context = context.getApplicationContext();
         return new ViewHolder(v);
     }
 
@@ -41,10 +43,12 @@ public class Learning_Leaders_Adapter extends RecyclerView.Adapter<Learning_Lead
                 " learning hours," +
                 learners.get(position).getCountry();
 //        Log.e("ImageUrl", imageUrl);
-
-        Glide.with(context)
+        Glide.with(holder.badge.getContext())
                 .load(imageUrl)
                 .into(holder.badge);
+       // Glide.with(context)
+             //   .load(imageUrl)
+             //   .into(holder.badge);
         holder.name.setText(learners.get(position).getName());
 
         holder.subtitle.setText(studentDetails);
@@ -61,7 +65,7 @@ public class Learning_Leaders_Adapter extends RecyclerView.Adapter<Learning_Lead
         TextView name, subtitle;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            badge = (ImageView) itemView.findViewById(R.id.badge);
+            badge = (ImageView) itemView.findViewById(R.id.badge_skill);
             name =(TextView) itemView.findViewById(R.id.name);
             subtitle =(TextView) itemView.findViewById(R.id.subtitle);
         }

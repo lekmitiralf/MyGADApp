@@ -21,6 +21,7 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <activity android:name=".ui.main.SubmissionActivity" />
     </application>
 
 </manifest>

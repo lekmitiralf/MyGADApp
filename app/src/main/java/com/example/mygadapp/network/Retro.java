@@ -17,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Retro {
     private static final String BASE_URL = "https://gadsapi.herokuapp.com/";
+    private static final String FORM_IRL = "https://docs.google.com/forms/d/e/";
 
     static ArrayList<Learner> learners = new ArrayList<>();
     public static Retrofit  Retrofit_instance() {
@@ -29,6 +30,14 @@ public class Retro {
 
         return retrofit;
     }
+    public static Retrofit Retro_form(){
+            Retrofit retro_form = new Retrofit.Builder()
+                    .baseUrl(FORM_IRL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            return retro_form;
+        }
+
 
 
 

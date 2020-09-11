@@ -13,7 +13,7 @@
 
 
         <ImageView
-            android:id="@+id/badge"
+            android:id="@+id/badge_skill"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="12dp"
@@ -32,7 +32,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.16"
-            app:layout_constraintStart_toEndOf="@+id/badge"
+            app:layout_constraintStart_toEndOf="@+id/badge_skill"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:text="223 Learning Hours, Kenya"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.284"
-            app:layout_constraintStart_toEndOf="@+id/badge"
+            app:layout_constraintStart_toEndOf="@+id/badge_skill"
             app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

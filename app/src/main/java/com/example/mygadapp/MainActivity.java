@@ -1,11 +1,13 @@
 package com.example.mygadapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.mygadapp.fragments.LearningLeadersFragment;
 import com.example.mygadapp.fragments.SkillIQLeadersFragment;
+import com.example.mygadapp.ui.main.SubmissionActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
@@ -37,9 +39,14 @@ public class MainActivity extends AppCompatActivity {
         tabs.setupWithViewPager(mViewPager);
 
         Button button = findViewById(R.id.submit);
-        button.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
 
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SubmissionActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     public class SectionPagerAdapter extends FragmentPagerAdapter {
         public SectionPagerAdapter(@NonNull FragmentManager fm) {
