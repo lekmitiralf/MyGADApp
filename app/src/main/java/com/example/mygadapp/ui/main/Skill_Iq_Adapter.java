@@ -17,10 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class Skill_Iq_Adapter extends RecyclerView.Adapter<Skill_Iq_Adapter.ViewHolder> {
-    Context context;
+    private Context context2;
     private List<Skill> Skills ;
     public Skill_Iq_Adapter(Context context , List<Skill> Skills) {
-        this.context = context;
+        this.context2 = context;
         // this.imageView = imageView;
         this.Skills = Skills;
 
@@ -30,7 +30,7 @@ public class Skill_Iq_Adapter extends RecyclerView.Adapter<Skill_Iq_Adapter.View
     @Override
     public Skill_Iq_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.gads_item,parent,false);
+                .inflate(R.layout.gads_skill_item,parent,false);
         return new ViewHolder(v);
     }
 
@@ -42,7 +42,7 @@ public class Skill_Iq_Adapter extends RecyclerView.Adapter<Skill_Iq_Adapter.View
                 Skills.get(position).getCountry();
 //        Log.e("ImageUrl", imageUrl);
 
-        Glide.with(context)
+        Glide.with(context2)
                 .load(imageUrl)
                 .into(holder.badge);
         holder.name.setText(Skills.get(position).getName());
@@ -52,10 +52,10 @@ public class Skill_Iq_Adapter extends RecyclerView.Adapter<Skill_Iq_Adapter.View
 
     @Override
     public int getItemCount() {
-        return 0;
+        return Skills.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+     class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView badge;
         TextView name, subtitle;

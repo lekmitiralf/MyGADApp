@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class Learning_Leaders_Adapter extends RecyclerView.Adapter<Learning_Leaders_Adapter.ViewHolder>  {
-    Context context;
+    private Context context;
     private List<Learner> learners ;
     public Learning_Leaders_Adapter(Context context , List<Learner> learners) {
         this.context = context;
@@ -52,10 +52,10 @@ public class Learning_Leaders_Adapter extends RecyclerView.Adapter<Learning_Lead
 
     @Override
     public int getItemCount() {
-        return 0;
+        return learners.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView badge;
         TextView name, subtitle;

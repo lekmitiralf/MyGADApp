@@ -12,4 +12,7 @@ public interface RequestInterface {
     @GET("api/hours")
     Call<List<Learner>> getLearnerJson();
 
+    @GET("api/skilliq")
+    Call<List<Skill>> getSkillJson();
+
 }
